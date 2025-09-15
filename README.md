@@ -29,6 +29,10 @@ Esto permite consultar fácilmente:
 ### Relación
 lectores (1) ←→ (N) lectoreslibros (N) ←→ (1) libros
 
+### Consultas de ejemplo realizadas 
+[Consultas de ejemplo](consultas.sql)
+
+
 ## Cómo usar el proyecto | [Ver el script de la base de datos](proyectobiblioteca.sql)
 
 1. Instala PostgreSQL y pgAdmin4.
