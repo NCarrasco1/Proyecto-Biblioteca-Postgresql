@@ -29,7 +29,7 @@ Esto permite consultar fácilmente:
 ### Relación
 lectores (1) ←→ (N) lectoreslibros (N) ←→ (1) libros
 
-## Cómo usar el proyecto
+## Cómo usar el proyecto | [Ver el script de la base de datos](proyectobiblioteca.sql)
 
 1. Instala PostgreSQL y pgAdmin4.
 2. Abre pgAdmin4 y crea una nueva base de datos (por ejemplo, "biblioteca").
