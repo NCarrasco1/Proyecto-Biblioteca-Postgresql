@@ -3,13 +3,7 @@
 -- Creación de esquema, tablas y datos de prueba
 -- =====================================================
 
--- Crear base de datos (ejecutar como superusuario)
--- CREATE DATABASE biblioteca;
-
--- Usar la base de datos
--- \c biblioteca;
-
--- =====================================================
+- =====================================================
 -- TABLA: lectores
 -- =====================================================
 CREATE TABLE lectores (
@@ -19,7 +13,6 @@ CREATE TABLE lectores (
     email VARCHAR(100) UNIQUE NOT NULL,
     nacimiento DATE
 );
-
 -- =====================================================
 -- TABLA: libros
 -- =====================================================
@@ -30,7 +23,6 @@ CREATE TABLE libros (
     autor VARCHAR(100),
     isbn INTEGER UNIQUE
 );
-
 -- =====================================================
 -- TABLA: lectoreslibros (relación N:N)
 -- =====================================================
@@ -43,7 +35,6 @@ CREATE TABLE lectoreslibros (
     FOREIGN KEY (idlector) REFERENCES lectores(id) ON DELETE CASCADE,
     FOREIGN KEY (idlibro) REFERENCES libros(id) ON DELETE CASCADE
 );
-
 -- =====================================================
 -- INSERTAR DATOS DE PRUEBA
 -- =====================================================
@@ -86,26 +77,3 @@ INSERT INTO lectoreslibros (idlector, idlibro, fecha_prestamo, fecha_devolucion)
 (8, 8, '2025-02-10', NULL),
 (9, 9, '2025-02-15', NULL),
 (10, 10, '2025-02-20', NULL);
-
--- =====================================================
--- CONSULTAS DE EJEMPLO
--- =====================================================
-
--- Ver todos los lectores
-SELECT * FROM lectores;
-
--- Ver todos los libros
-SELECT * FROM libros;
-
--- Ver qué libros tiene cada lector
-SELECT r.nombre AS lector, l.nombre AS libro, ll.fecha_prestamo, ll.fecha_devolucion
-FROM lectores r
-JOIN lectoreslibros ll ON r.id = ll.idlector
-JOIN libros l ON ll.idlibro = l.id;
-
--- Ver los lectores que tienen libros de Gabriel García Márquez
-SELECT r.nombre, r.apellido, l.nombre AS libro
-FROM lectores r
-JOIN lectoreslibros ll ON r.id = ll.idlector
-JOIN libros l ON ll.idlibro = l.id
-WHERE l.autor = 'Gabriel García Márquez';
